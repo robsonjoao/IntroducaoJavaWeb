@@ -5,6 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import org.hibernate.validator.Email;
+import org.hibernate.validator.NotEmpty;
+
 /**
  * 
  * @author Robson J. P.
@@ -23,12 +26,20 @@ public class Usuario {
 		return id;
 	}
 	
+	@NotEmpty(message="Nome obrigatório")
 	public String getNome() {
 		return nome;
 	}
+	
+	@Email
 	public String getEmail() {
 		return email;
 	}
+	
+	public String getTelefone() {
+		return telefone;
+	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -38,11 +49,6 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public String getTelefone() {
-		return telefone;
-	}
-
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
